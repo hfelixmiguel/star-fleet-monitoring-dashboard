@@ -1,0 +1,1 @@
+export { mockStarships } from './starships';
