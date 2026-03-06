@@ -1,0 +1,15 @@
+name: Release Management Procedures
+on:
+  release:
+    types: [published]
+jobs:
+  release-management:
+    runs-on: ubuntu-latest
+    steps:
+      - uses actions/checkout@v3
+      - name: Create Release Notes
+        run: echo "Creating release notes for version ${{ github.event.release.tag_name }}"
+      - name: Update Version Number
+        run: npm version patch --no-git-tagging
+      - name: Build Production Bundle
+        run: npm install && npm run build

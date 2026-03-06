@@ -1,0 +1,15 @@
+name: Code Quality Checks
+on:
+  push:
+    branches: [main]
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses actions/checkout@v3
+      - name: ESLint Check
+        run: npm install && npm run lint
+      - name: TypeScript Compiler Check
+        run: npm install && npx tsc --noEmit
+      - name: Type Checking
+        run: npm install && npm run type-check

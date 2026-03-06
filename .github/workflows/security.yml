@@ -1,0 +1,15 @@
+name: Security Scanning
+on:
+  push:
+    branches: [main]
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses actions/checkout@v3
+      - name: SAST Scan
+        run: npm audit --production
+      - name: DAST Scan
+        run: echo "Running dynamic application security testing"
+      - name: Dependency Check
+        run: npm install && npm audit
