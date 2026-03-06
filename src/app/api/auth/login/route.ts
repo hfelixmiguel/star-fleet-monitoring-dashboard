@@ -1,18 +1,16 @@
 /**
  * API endpoint for user login
  */
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { email, password } = req.body;
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const { email, password } = body;
 
   // Validate credentials
   if (email === 'admin@example.com' && password === 'password') {
-    return res.status(200).json({ token: 'jwt-token', role: 'admin' });
+    return NextResponse.json({ token: 'jwt-token', role: 'admin' });
   }
 
-  return res.status(401).json({ error: 'Invalid credentials' });
+  return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
 }

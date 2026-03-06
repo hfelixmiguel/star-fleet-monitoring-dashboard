@@ -1,12 +1,9 @@
 /**
  * API endpoint for OAuth2 Google login
  */
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function GET(request: NextRequest) {
   const googleAuthUrl = 'https://accounts.google.com/o/oauth2/auth';
-  return res.status(200).json({ url: googleAuthUrl });
+  return NextResponse.json({ url: googleAuthUrl });
 }

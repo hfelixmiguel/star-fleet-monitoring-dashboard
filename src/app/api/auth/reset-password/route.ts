@@ -1,16 +1,14 @@
 /**
  * API endpoint for password reset
  */
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { email } = req.body;
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const { email } = body;
 
   // Send password reset link
   console.log(`Password reset requested for ${email}`);
 
-  return res.status(200).json({ message: 'Password reset link sent' });
+  return NextResponse.json({ message: 'Password reset link sent' });
 }
