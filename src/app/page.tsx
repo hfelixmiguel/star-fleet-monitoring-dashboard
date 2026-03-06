@@ -2,6 +2,8 @@
 
 import { ShipCard } from '@/components';
 import { mockStarships } from '@/data';
+import NewsWidget from '@/components/NewsWidget';
+import Link from 'next/link';
 
 export default function Home() {
   const operational = mockStarships.filter(s => s.status === 'operational').length;
@@ -11,10 +13,20 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">
-          Starfleet Fleet Monitoring Dashboard
-        </h1>
-        <p className="text-gray-400">Real-time starship status monitoring</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-white mb-2">
+              Starfleet Fleet Monitoring Dashboard
+            </h1>
+            <p className="text-gray-400">Real-time starship status monitoring</p>
+          </div>
+          <Link
+            href="/news"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Space News 🚀
+          </Link>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
@@ -36,10 +48,17 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {mockStarships.map(ship => (
-          <ShipCard key={ship.id} ship={ship} />
-        ))}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="lg:col-span-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {mockStarships.map(ship => (
+              <ShipCard key={ship.id} ship={ship} />
+            ))}
+          </div>
+        </div>
+        <div className="lg:col-span-1">
+          <NewsWidget />
+        </div>
       </div>
     </main>
   );
