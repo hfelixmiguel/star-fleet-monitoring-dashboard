@@ -12,43 +12,39 @@
 - [x] Deploy to Vercel production
 - [x] Integrate Spaceflight News API
 
-## Current Sprint: Dashboard Features 🎯
+## Current Sprint: UI/UX Enhancements 🎨
 
-### Spaceflight News API Integration ✅ COMPLETED
-**API**: `api.spaceflightnewsapi.net/v4`
+### New Features to Implement:
+1. **Search & Filter Bar** - Add search and filter functionality
+2. **Ship Detail Modal** - Modal with full ship details
+3. **Dark/Light Mode Toggle** - Theme switcher
+4. **Responsive Mobile Navigation** - Mobile-friendly improvements
+5. **Quick Actions Panel** - Action buttons on ship cards
 
-#### Funcionalidades Implementadas:
-1. ✅ **NewsCard Component** - Exibir cards de notícias espaciais
-2. ✅ **NewsList Component** - Lista de notícias com paginação
-3. ✅ **NewsFilter Component** - Filtrar por tipo de artigo
-4. ✅ **NewsAPI Route** - Endpoint para buscar notícias
-5. ✅ **NewsWidget** - Widget de notícias na dashboard
-
-#### Tasks Completadas:
-- [x] 1. Criar Issue para integração da API
-- [x] 2. Criar branch feature/news-api-integration
-- [x] 3. Criar API route `/api/news` para consumir Spaceflight News API
-- [x] 4. Criar componente NewsCard
-- [x] 5. Criar componente NewsList
-- [x] 6. Criar página `/news` para listar notícias
-- [x] 7. Adicionar widget de notícias na dashboard principal
-- [x] 8. Criar PR e fazer merge
-- [x] 9. Deploy para Vercel e verificar funcionamento
-- [x] 10. Tirar screenshot e apresentar resultado
+#### Tasks:
+- [ ] 1. Create Issue for UI/UX enhancements
+- [ ] 2. Create branch feature/ui-ux-improvements
+- [ ] 3. Add search and filter bar to dashboard
+- [ ] 4. Create ShipDetailModal component
+- [ ] 5. Add dark/light mode toggle with theme provider
+- [ ] 6. Improve responsive mobile layout
+- [ ] 7. Add quick action buttons to ShipCard
+- [ ] 8. Create PR and merge
+- [ ] 9. Deploy to Vercel and verify
+- [ ] 10. Take screenshot and present result
 
 ## Next Steps 📋
 1. ~~**API Integration**~~ - ✅ Completo
-2. **Dashboard Features** - Add filtering, sorting, and search functionality
+2. ~~**UI/UX Enhancements**~~ - Em progresso
 3. **Real-time Updates** - Implement WebSocket connections for live updates
 4. **Authentication** - Add user authentication for fleet access control
 5. **Performance Optimization** - Optimize rendering with memoization
-6. **Mobile Responsiveness** - Ensure full mobile compatibility
-7. **Documentation** - Complete API documentation and deployment guides
+6. **Documentation** - Complete API documentation and deployment guides
 
 ## Current Sprint 🎯
-- Focus: Dashboard Features
-- Goal: Melhorias na experiência do usuário e funcionalidades
-- Timeline: Próxima iteração
+- Focus: UI/UX Enhancements
+- Goal: Improve user experience with search, filters, modals, and theming
+- Timeline: Iteração atual
 
 ## Technical Debt 📝
 - Need to add more comprehensive test coverage
