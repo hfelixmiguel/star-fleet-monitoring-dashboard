@@ -11,16 +11,6 @@ const starships = [
     health: { hull: 95, shields: 87, crew: 100 },
     lastUpdate: '2026-03-05T10:00:00Z',
   },
-  {
-    id: '2',
-    name: 'USS Enterprise-A',
-    registry: 'NCC-1701A',
-    status: 'operational' as const,
-    class: 'Constitution-class refit',
-    coordinates: { x: 45.3, y: -32.9, z: 12.6 },
-    health: { hull: 88, shields: 90, crew: 98 },
-    lastUpdate: '2026-03-05T10:05:00Z',
-  },
 ];
 
 export async function GET(request: NextRequest) {
