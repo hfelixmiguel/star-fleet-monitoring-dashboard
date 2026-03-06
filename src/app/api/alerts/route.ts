@@ -3,7 +3,7 @@
  */
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(
+export async function GET(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -12,5 +12,5 @@ export default async function handler(
     { message: 'Memory usage critical', severity: 'critical', timestamp: new Date().toISOString() }
   ];
 
-  res.status(200).json(alerts);
+  return Response.json(alerts);
 }
