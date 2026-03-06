@@ -1,0 +1,84 @@
+/**
+ * API documentation with OpenAPI/Swagger specifications
+ */
+openapi: 3.0.0
+info:
+  title: Starfleet Fleet Monitoring Dashboard API
+  description: API for monitoring starship status, coordinates, and health
+  version: 1.0.0
+servers:
+  - url: https://starfleet-api.com/v1
+    description: Production API
+tags:
+  - name: ships
+    description: Starship operations
+paths:
+  /ships:
+    get:
+      summary: Get all starships
+      operationId: getAllShips
+      tags:
+        - ships
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ship'
+  /ships/{id}:
+    get:
+      summary: Get starship by ID
+      operationId: getShipById
+      tags:
+        - ships
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ship'
+components:
+  schemas:
+    Ship:
+      type: object
+      required:
+        - id
+        - name
+        - status
+        - coordinates
+        - health
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - active
+            - warning
+            - critical
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        health:
+          type: integer
+    Coordinates:
+      type: object
+      required:
+        - x
+        - y
+      properties:
+        x:
+          type: number
+        y:
+          type: number
