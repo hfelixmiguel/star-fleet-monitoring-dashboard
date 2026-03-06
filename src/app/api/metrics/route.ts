@@ -1,12 +1,9 @@
 /**
  * API endpoint for real-time metrics
  */
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function GET(request: NextRequest) {
   const metrics = {
     cpu: Math.random() * 100,
     memory: Math.random() * 100,
@@ -16,5 +13,5 @@ export default async function handler(
     errors: Math.floor(Math.random() * 10)
   };
 
-  res.status(200).json(metrics);
+  return NextResponse.json(metrics);
 }
