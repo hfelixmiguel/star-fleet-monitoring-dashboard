@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { ShipCard } from '@/components';
 import { mockStarships } from '@/data';
 import NewsWidget from '@/components/NewsWidget';
+import NASAApodWidget from '@/components/NASAApodWidget';
 import Link from 'next/link';
 import SearchFilterBar from '@/components/SearchFilterBar';
 import ShipDetailModal from '@/components/ShipDetailModal';
@@ -74,6 +75,12 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <Link
+              href="/nasa"
+              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+            >
+              NASA 🌌
+            </Link>
+            <Link
               href="/news"
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
             >
@@ -131,7 +138,8 @@ export default function Home() {
           )}
         </div>
         <div className="lg:col-span-1">
-          <div className="sticky top-4">
+          <div className="sticky top-4 space-y-4">
+            <NASAApodWidget />
             <NewsWidget />
           </div>
         </div>
